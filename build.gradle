@@ -1,0 +1,15 @@
+plugins {
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.amazonaws:aws-java-sdk-iot:1.12.24' // Adjust to the latest version
+}
+
+application {
+    mainClassName = 'CreateIoTCert'
+}
