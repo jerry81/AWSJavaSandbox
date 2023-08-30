@@ -1,0 +1,6 @@
+systemProp.http.proxyHost=127.0.0.1
+systemProp.http.proxyPort=4780
+systemProp.https.proxyHost=127.0.01
+systemProp.https.proxyPort=4780
+systemProp.javax.net.ssl.protocols=TLSv1.2,TLSv1.3
+systemProp.https.protocols=TLSv1.2,TLSv1.3

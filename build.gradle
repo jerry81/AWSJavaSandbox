@@ -1,15 +1,21 @@
 plugins {
     id 'java'
+    id 'application'
 }
 
 repositories {
-    mavenCentral()
+   // mavenCentral()
+    jcenter()
 }
 
 dependencies {
-    implementation 'com.amazonaws:aws-java-sdk-iot:1.12.24' // Adjust to the latest version
+    implementation 'com.amazonaws:aws-java-sdk-iot:1.12.538' // Adjust to the latest version
 }
 
 application {
     mainClassName = 'CreateIoTCert'
+}
+
+wrapper {
+    gradleVersion = '7.3.3'
 }

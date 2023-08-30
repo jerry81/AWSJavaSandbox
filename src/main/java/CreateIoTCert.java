@@ -10,7 +10,7 @@ public class CreateIoTCert {
 
         // Read your CSR from a file or another source
         String csrContents = "<contents of your CSR>";
-
+        System.out.println("hello world " );
         // Create a request to register the certificate
         RegisterCertificateRequest request = new RegisterCertificateRequest()
             .setSetAsActive(true) // Set to true to activate the certificate
