@@ -1,4 +1,5 @@
 import com.amazonaws.services.iot.AWSIot;
+import com.amazonaws.regions.Region;
 import com.amazonaws.services.iot.AWSIotClientBuilder;
 import com.amazonaws.services.iot.model.RegisterCertificateRequest;
 import com.amazonaws.services.iot.model.RegisterCertificateResult;
@@ -10,11 +11,12 @@ public class CreateIoTCert {
 
         // Read your CSR from a file or another source
         String csrContents = "<contents of your CSR>";
-        System.out.println("hello world " );
+        String endpoint = awsIotClient.getEndpoint().toString();
+        System.out.println(endpoint);
         // Create a request to register the certificate
-        RegisterCertificateRequest request = new RegisterCertificateRequest()
-            .setSetAsActive(true) // Set to true to activate the certificate
-            .setCertificatePem(csrContents);
+        RegisterCertificateRequest request = new RegisterCertificateRequest();
+        request.setSetAsActive(true); // Set to true to activate the certificate
+        request.setCertificatePem(csrContents);
 
         // Register the certificate
         RegisterCertificateResult result = awsIotClient.registerCertificate(request);
