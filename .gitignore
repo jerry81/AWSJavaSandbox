@@ -26,3 +26,5 @@ replay_pid*
 .gradle
 
 build
+
+private_key.pem
