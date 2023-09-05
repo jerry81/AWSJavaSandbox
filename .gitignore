@@ -30,3 +30,5 @@ build
 private_key.pem
 
 *.KEY
+
+*.pem

@@ -36,36 +36,32 @@ public class CreateIoTCert {
             return null;
         }
     }
-    public static void main(String[] args) {
-        // Set up AWS IoT client
-        AWSIot awsIotClient = AWSIotClientBuilder.standard().build();
+
+    private void createCert() {
+    AWSIot awsIotClient = AWSIotClientBuilder.standard().build();
 
         // Read your CSR from a file or another source
-        String csrContents = readCSRFromFile("csr_file.csr");
+        String csrContents = readCSRFromFile("csr.pem");
         AwsRegionProvider regionProvider = new DefaultAwsRegionProviderChain();
         String region = regionProvider.getRegion();
 
         System.out.println("Configured Region: " + region);
         // Create a request to register the certificate
-        // RegisterCertificateRequest request = new RegisterCertificateRequest();
-        // // request.setSetAsActive(false); // Set to true to activate the certificate
-        // request.setCertificatePem(csrContents);
-        // request.setStatus("ACTIVE");
 
         CreateCertificateFromCsrRequest request = new CreateCertificateFromCsrRequest();
         request.setCertificateSigningRequest(csrContents);
 
-        // String pem = request.getCertificatePem();
-        // String ca = request.getCaCertificatePem();
-        // System.out.println("csrContents are " + pem);
-        // System.out.println("ca contents are " + ca);
-
 
         // Register the certificate
-        CreateCertificateFromCsrResult result = awsIotClient.createCertificateFromCsr(request);
+         CreateCertificateFromCsrResult result = awsIotClient.createCertificateFromCsr(request);
 
         // Print certificate ARN and ID
-        System.out.println("Certificate ARN: " + result.getCertificateArn());
-        System.out.println("Certificate ID: " + result.getCertificateId());
+         System.out.println("Certificate ARN: " + result.getCertificateArn());
+         System.out.println("Certificate ID: " + result.getCertificateId());
+    }
+
+    public static void main(String[] args) {
+        // createCert();
+        System.out.println("Hello");
     }
 }

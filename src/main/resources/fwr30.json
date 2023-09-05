@@ -1,0 +1,37 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iot:Publish"
+      ],
+      "Resource": [
+        "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:topic/fwr30/data/__serial_number__",
+        "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:topic/fwr30/data/__serial_number__/*",
+        "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:topic/fwr30/service/__serial_number__",
+        "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:topic/fwr30/test/__serial_number__"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iot:GetThingShadow",
+        "iot:UpdateThingShadow",
+        "iot:DeleteThingShadow"
+      ],
+      "Resource": [
+        "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:thing/__serial_number__"
+      ]
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iotjobsdata:GetPendingJobExecutions",
+        "iotjobsdata:UpdateJobExecution",
+        "iotjobsdata:StartNextPendingJobExecution"
+      ],
+      "Resource": "arn:aws:iot:__IOT_REGION__:__AWS_ACCOUNT__:thing/__serial_number__"
+    }
+  ]
+}
