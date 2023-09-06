@@ -95,7 +95,7 @@ public class CreateIoTCert {
       final GetPolicyRequest request = GetPolicyRequest.builder().policyName(policyName).build();
       try {
         ic.getPolicy(request);
-        System.error.println("policy already exists");
+        System.err.println("policy already exists");
       } catch (final ResourceNotFoundException e) {
         System.out.println("policy does not exist");
 
@@ -113,8 +113,8 @@ public class CreateIoTCert {
                     build();
             ic.createPolicy(policyRequest);
           System.out.println("Created policy " + policyName);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (IOException ioe) {
+            ioe.printStackTrace();
         }
       }
 
